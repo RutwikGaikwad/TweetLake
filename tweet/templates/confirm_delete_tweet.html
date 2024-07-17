@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Tweets
+{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<h1 class="text-center mt-4 mb-4">Are you sure you want to delete the Tweet?</h1>
+
+<h2 class="text">Your Tweet:</h2>
+
+<div class="card mb-4" style="width: 18rem;">
+  <img src="{{tweet.img.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{tweet.user.username}}</h5>
+    <p class="card-text">{{tweet.text}}</p>
+    <a href="{% url "edit_tweet" tweet.id%}" class="btn btn-success">Edit</a>
+  </div>
+</div>
+
+<form method='POST' type="submit">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<a href="{% url "all_tweets" %}">Back to the Tweets</a>
+  
+</div>
+{% endblock %}
