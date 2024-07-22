@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+search results
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center mt-4">Search Results</h1>
+
+<a class="btn btn-primary" href="{% url "create_tweet" %}">New Tweet</a>
+
+<div class="container row gap-3 mt-4">
+
+  {% if tweet %}
+
+
+  {% for tweet in tweets %}
+
+    <div class="card" style="width: 18rem;">
+      <img src="{{tweet.img.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{tweet.user.username}}</h5>
+        <p class="card-text">{{tweet.text}}</p>
+        {% if tweet.user == user %}
+        <a href="{% url "edit_tweet" tweet.id%}" class="btn btn-success">Edit</a>
+        <a href="{% url "delete_tweet" tweet.id%}" class="btn btn-danger">Delete</a>
+        {% endif %}
+    
+      </div>
+    </div>
+
+  {% endfor %}
+
+  {% else %}
+
+    <h2 class="text-center mt-4">No matches found</h2>
+  {% endif %}
+
+</div>
+
+{% endblock %}

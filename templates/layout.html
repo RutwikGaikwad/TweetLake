@@ -26,8 +26,12 @@
             <a class="nav-link active" aria-current="page" href="{% url "all_tweets" %}">Home</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        {% if user.is_authenticated %}
+        <p class="navbar-nav me-auto mb-2 mb-lg-0 font-weight-bold">Welcome {{user.username}}</p>
+        {% endif %}
+        <form class="d-flex" role="search" method="GET" action="{% url "search_results"%}">
+          {% csrf_token %}
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="" id="text-search" name="query">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         {% if user.is_authenticated %}

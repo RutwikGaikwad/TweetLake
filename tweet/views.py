@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Tweet
+from .models import Tweet,User
 from .forms import TweetForm, UserRegistrationForm
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -58,3 +58,10 @@ def register(request):
   else:
     form = UserRegistrationForm()
   return render(request,'registration/register.html',{'form':form})
+
+def search_results(request):
+  query = request.GET.get('query')
+  tweets = []
+  if query:
+    tweets = Tweet.objects.filter(text__icontains=query)
+  return render(request,'search_results.html',{'tweets':tweets})
