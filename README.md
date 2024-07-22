@@ -56,7 +56,7 @@ Welcome to TweetLake! This Django project allows users to create accounts, log i
 
    ```bash
    python manage.py runserver
-7. **Open your web browser and navigate to http://127.0.0.1:8000 to access the application.**
+7. **Open your web browser and navigate to http://127.0.0.1:8000/tweet to access the application.**
 
 ## Usage
 - **User Registration and Login**
