@@ -20,7 +20,7 @@ search results
     <div class="card" style="width: 18rem;">
       <img src="{{tweet.img.url}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{tweet.user.username}}</h5>
+        <h5 class="card-title user-name">{{tweet.user.username}}</h5>
         <p class="card-text">{{tweet.text}}</p>
         {% if tweet.user == user %}
         <a href="{% url "edit_tweet" tweet.id%}" class="btn btn-success">Edit</a>
