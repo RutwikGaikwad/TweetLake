@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-k5h+hm@*gq31kbvnagzs!e+wl7)758qdv5+5f9!2r#x(%t3q1i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.verce.app','.now.sh']
 
 
 # Application definition
@@ -119,6 +119,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles_build','static')
 
 
 MEDIA_URL = '/media/'

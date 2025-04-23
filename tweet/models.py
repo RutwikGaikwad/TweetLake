@@ -8,6 +8,6 @@ class Tweet(models.Model):
   img = models.ImageField(upload_to='images/',blank=True,null=True)
   created_at = models.DateTimeField(auto_now_add=True)
   modified_at = models.DateTimeField(auto_now=True)
-
+  
   def __str__(self):
     return f'{self.user.username} - {self.text[:20]}'
