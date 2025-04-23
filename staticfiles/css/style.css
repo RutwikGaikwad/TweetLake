@@ -1,0 +1,55 @@
+.image-resize {
+  height: 300px;
+  object-fit: cover;
+}
+
+.user-name-navbar {
+  font-style: italic;
+  margin-left: 5px;
+}
+
+.user-name{
+  text-transform: uppercase;
+}
+
+.heading {
+  text-decoration: underline;
+}
+
+#icon {
+  width : 30px;
+  cursor : pointer;
+}
+
+.icon {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 50px;
+  height: 30px;
+  background-color: white;
+  background-size: cover;
+  border-radius: 50px;
+  outline: none;
+}
+
+.icon:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color: yellow;
+  border-radius: 50px;
+}
+
+.icon:checked {
+  background-color: grey;
+
+}
+
+.icon:checked:before {
+  transform: translate(100%);
+}
