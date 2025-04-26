@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k5h+hm@*gq31kbvnagzs!e+wl7)758qdv5+5f9!2r#x(%t3q1i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tweet',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -74,8 +78,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'TweetLake.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
@@ -83,6 +89,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+DATABASES['default'] = dj_database_url.parse("postgresql://postgres:raAipvSnrBNpYIkpcrnAnHJqzHIekfIf@gondola.proxy.rlwy.net:50884/railway")
+# postgresql://postgres:raAipvSnrBNpYIkpcrnAnHJqzHIekfIf@gondola.proxy.rlwy.net:50884/railway
 
 
 # Password validation
@@ -119,20 +128,29 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
+# Cloudinary settings
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dow78bvlb',
+    'API_KEY': '752845892921451',
+    'API_SECRET': 'Nxjl_9Kd2aLqaquGTcJCyebc5u0',
+}
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = '/accounts/login'
+LOGIN_URL = '/accounts/login/'
 
-LOGIN_REDIRECT_URL = '/tweet/'
-LOGOUT_REDIRECT_URL = '/tweet/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

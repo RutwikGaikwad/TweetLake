@@ -15,7 +15,7 @@ Edit Tweet
 Create Tweet
 {% endif %}
 
-<form method="POST" enctype="multipart/form-data" claass="form">
+<form method="POST" enctype="multipart/form-data" class="form">
   {% csrf_token %}
   {{form.as_p}}
   <button class="btn btn-warning" type="submit">submit</button>
