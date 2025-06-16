@@ -90,8 +90,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse("postgresql://postgres:raAipvSnrBNpYIkpcrnAnHJqzHIekfIf@gondola.proxy.rlwy.net:50884/railway")
-# postgresql://postgres:raAipvSnrBNpYIkpcrnAnHJqzHIekfIf@gondola.proxy.rlwy.net:50884/railway
+DATABASES['default'] = dj_database_url.parse("postgres://019779b2-c685-74c8-b1b8-f92042b6fefa:77fdd083-8610-4eae-81d0-9460792ff22e@us-west-2.db.thenile.dev/tweet_lak_2")
 
 
 # Password validation
